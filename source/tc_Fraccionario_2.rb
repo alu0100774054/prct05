@@ -1,4 +1,4 @@
-require './fraccion'
+require '/Users/erikbv99421/Documents/Lpp/prct05/source/Fraccionario.rb'
 require 'test/unit'
 
 class Testfraccion < Test::Unit::TestCase
