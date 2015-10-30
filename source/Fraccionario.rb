@@ -1,9 +1,40 @@
 class Fraccionario
 	attr_reader :numerador, :denominador, :resultado
+	
+	def mcd(a,b)
+		b == 0 ? a : gcd(b,a%b)
+	end
+
+	def mcm(a,b)
+		aux1 = a * b
+		sol = aux1 / mcd(a,b)
+	end
+
 	def initialize(numerador,denominador)
-		@numerador = numerador
-		@denominador = denominador
+		raise TypeError, "Denominator may not be zero" if denominador.eql? 0
+		
+		reducir = mcd(numerador,denominador)
+
+		@numerador = numerador / reducir
+		@denominador = denominador / reducir
 		@resultado = numerador/denominador
+	end
+	
+	#operaciones de igualdad
+	def <(aux)
+	  (@numerador * aux.denomador) < (@denomador * aux.numerador) 
+	end
+
+	def >(aux)
+	  (@numerador * aux.denomador) > (@denomador * aux.numerador) 
+	end
+
+	def <=(aux)
+	  (@numerador * aux.denomador) <= (@denomador * aux.numerador) 
+	end
+
+	def >=(aux)
+	  (@numerador * aux.denomador) >= (@denomador * aux.numerador) 
 	end
 	#Operaciones aritmeticas
 	def +(f2)
