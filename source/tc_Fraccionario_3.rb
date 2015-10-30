@@ -1,4 +1,4 @@
-require './fraccion'
+require './Fraccionario.rb'
 require 'test/unit'
 
 class Testfraccion < Test::Unit::TestCase
